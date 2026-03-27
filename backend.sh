@@ -80,6 +80,7 @@ VALIDATE $? "installing MYSQL client"
 
 mysql -h 3.86.153.191 -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>$LOGFILE
 VALIDATE $? "Schema loading"
+#insted of giving public ip we can use dns names first you need to create dns records in AWS to use dns name
 
 systemctl restart backend &>>$LOGFILE
 VALIDATE $? "backend service restarting"
