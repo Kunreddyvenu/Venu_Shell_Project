@@ -43,7 +43,7 @@ VALIDATE $? "removing exiting code in html file"
 curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip &>>$LOGFILE
 VALIDATE $? "Downloading frontend code"
 
-cd /usr/nginx/html &>>$LOGFILE
+cd /usr/share/nginx/html &>>$LOGFILE
 unzip /tmp/frontend.zip &>>$LOGFILE
 VALIDATE $? "extracting frontend code"
 
