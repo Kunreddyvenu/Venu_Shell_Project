@@ -54,7 +54,7 @@ curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expen
 VALIDATE $? "downloading code file"
 
 cd /app
-rm-rf /app/*
+rm -rf /app/*  #if second time you run this entire script first weneed to delete exiting data in app directory we use * for that
 unzip /tmp/backend.zip &>>$LOGFILE
 VALIDATE $? "extracted bacend code"
 
