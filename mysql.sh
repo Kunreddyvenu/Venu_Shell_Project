@@ -52,5 +52,6 @@ else
    echo "MYSQL already installed ..skipping"
 fi
 
+echo "my DB is ready"
 
 
