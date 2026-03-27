@@ -41,6 +41,16 @@ VALIDATE $? "starting mysql server"
 mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOGFILE
 VALIDATE $? "setting up root password"
 
+#idempotent ఒక స్క్రిప్ట్‌ను ఎన్ని సార్లు run చేసినా అదే result రావాలి, error రావకూడదు అదే పని మళ్లీ మళ్లీ చేసినా system break అవకూడదు
+# we can use below script for idempotent
+
+dnf list installed mysql-server
+if [ $? -ne 0 ]
+then
+   dnf install mysql-server -y
+else
+   echo "MYSQL already installed ..skipping"
+fi
 
 
 
